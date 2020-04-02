@@ -19,8 +19,9 @@ namespace AB2
         var Brownie = new MenuItem() { itemName = "Brownie", itemPrice = 1, itemType = "Speisen" };
         var Apfelkuchen = new MenuItem() { itemName = "Apfelkuchen", itemPrice = 2.4 itemType = "Speisen" };
         var Kirschtorte = new MenuItem() { itemName = "Kirschtorte", itemPrice = 3, itemType = "Speisen" };
-
+        var Mittagstisch = new MenuItem() { itemName = "Taglicher Mittagstisch", itemPrice = 4.5, itemType = "Speisen"}
         order.Add(Milchkaffee);
+
         }
      }
 }
