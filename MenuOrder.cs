@@ -4,26 +4,26 @@ namespace AB2
 {
     public class MenuOrder
     {
-        public IDictionary<string, decimal> cart = new Dictionary<string, decimal>();
+        public IDictionary<MenuItem, decimal> cart = new Dictionary<MenuItem, decimal>();
 
         public void Add(MenuItem itemchoice)
         {
 
-            bool keyExists = cart.ContainsKey(itemchoice.itemName);
+            bool keyExists = cart.ContainsKey(itemchoice);
             if (keyExists)
             {
-                double newQuant = cart[itemchoice.itemName] + 1;
-                Console.WriteLine("You have added {0} {1}", cart[itemchoice.itemName], itemchoice.itemName);
+                decimal newQuant = cart[itemchoice] + 1;
+                Console.WriteLine("You have added {0} {1}", cart[itemchoice], itemchoice.itemName);
             }
             else
             {
-                cart.Add(itemchoice.itemName, 1);
+                cart.Add(itemchoice, 1);
             }
         }
 
         public void PrintOrder()
         {
-            foreach (KeyValuePair<string, decimal> entry in cart)
+            foreach (KeyValuePair<MenuItem, decimal> entry in cart)
 
             {
                 /* for each item in our order (in the dictionary)
@@ -32,8 +32,9 @@ namespace AB2
                  * quantity (dictionary value) x MenuItem.itemPrice (object attrib.)
                  */
 
-                decimal kosten = entry.Value *  MenuItem {entry}.itemPrice;
-                Console.WriteLine("{0}x {1} - {2}", entry.Value, entry.Key);
+                decimal kosten = entry.Value *  entry.Key.itemPrice;
+                Console.WriteLine("printing order...");
+                Console.WriteLine("{0}x {1} - {2}", entry.Value, entry.Key.itemName, kosten);
                 
             }
         }
