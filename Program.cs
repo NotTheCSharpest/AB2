@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 namespace AB2
 
 {
@@ -21,9 +22,18 @@ namespace AB2
         var Kirschtorte = new MenuItem() { itemName = "Kirschtorte", itemPrice = 3M, itemType = "Speisen" };
         var Mittagstisch = new MenuItem() { itemName = "Taglicher Mittagstisch", itemPrice = 4.5M, itemType = "Speisen" };
 
+        /* print menu and initial greeting */
+        Console.WriteLine("Welcome to Cafe Blau");
+        Console.WriteLine("--------------------");
+        Console.WriteLine("--------Menu--------");
+            /* does not work currently */
+            foreach (var item in MenuItem)
+            {
+                Console.WriteLine("{} {}", item.itemName, item.itemPrice);
+            }
 
-        order.Add(Milchkaffee);
-        order.PrintOrder();
+        /* take order*/
+
         }
      }
 }

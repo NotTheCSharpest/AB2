@@ -12,32 +12,57 @@ namespace AB2
             bool keyExists = cart.ContainsKey(itemchoice);
             if (keyExists)
             {
-                decimal newQuant = cart[itemchoice] + 1;
-                Console.WriteLine("You have added {0} {1}", cart[itemchoice], itemchoice.itemName);
+                decimal newQuant = cart[itemchoice] + 1M;
+                cart[itemchoice] = newQuant;
+                Console.WriteLine("{0} added", itemchoice.itemName);
             }
             else
             {
-                cart.Add(itemchoice, 1);
+                cart.Add(itemchoice, 1M);
+                Console.WriteLine("{0} added", itemchoice.itemName);
             }
         }
 
+        public void PrintMenu()
+        {
+            /* example from discord.
+             * foreach(var item in menuItems)
+                {
+                  Console.WriteLine(item.PropOne);
+                  Console.WriteLine(item.PropTwo);
+                  Console.WriteLine(item.PropThree);
+                  Console.WriteLine(item.PropFour);
+                  Console.WriteLine(item.PropFive);
+                  //and so on
+                }
+                */
+        }
         public void PrintOrder()
         {
+            Console.WriteLine("\r\nprinting order...");
             foreach (KeyValuePair<MenuItem, decimal> entry in cart)
 
             {
-                /* for each item in our order (in the dictionary)
-                 * print the quantity, item name, and then cost
-                 * where cost is
-                 * quantity (dictionary value) x MenuItem.itemPrice (object attrib.)
-                 */
-
-                decimal kosten = entry.Value *  entry.Key.itemPrice;
-                Console.WriteLine("printing order...");
+                decimal kosten = entry.Value *  entry.Key.itemPrice;                
                 Console.WriteLine("{0}x {1} - {2}", entry.Value, entry.Key.itemName, kosten);
                 
             }
         }
+
+        public void OrderTotal()
+        {
+            decimal total = 0;
+            foreach (KeyValuePair<MenuItem, decimal> entry in cart)
+            {
+                decimal kosten = entry.Value * entry.Key.itemPrice;
+                
+                total += kosten;
+                /*string printtotal = total.ToString();*/
+
+        }
+        Console.WriteLine("your total is: {0}", total);
+        }
+
 
         public MenuOrder()
         {
