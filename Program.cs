@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
 namespace AB2
 
 {
@@ -36,8 +34,34 @@ namespace AB2
                 Console.WriteLine("{0} - {1}", menu.itemName, menu.itemPrice);
             }
 
-        /* take order*/
+            /* take order*/
 
+            void TakeOrder ()
+            {
+                Console.WriteLine("Enter your selection or type checkout");
+                string choice = Console.ReadLine();
+                foreach (var menu in itemsAvailable)
+                {
+                    if (menu.itemName.Equals(choice))
+                    {
+                        order.Add(menu);
+                        TakeOrder();
+
+                    }
+                    else if (choice.Equals("checkout"))
+                    {
+                        order.PrintOrder();
+                        order.OrderTotal();
+                        return;
+                    }
+                    /*else
+                    {
+                        Console.WriteLine("test");
+                        TakeOrder();
+                    }*/
+                }
+            }
+            TakeOrder();
         }
      }
 }

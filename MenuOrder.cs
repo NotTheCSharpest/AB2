@@ -26,6 +26,7 @@ namespace AB2
         public void PrintOrder()
         {
             Console.WriteLine("\r\nprinting order...");
+            Console.WriteLine(".................");
             foreach (KeyValuePair<MenuItem, int> entry in cart)
 
             {
@@ -43,10 +44,9 @@ namespace AB2
                 decimal kosten = entry.Value * entry.Key.itemPrice;
                 
                 total += kosten;
-                /*string printtotal = total.ToString();*/
 
         }
-        Console.WriteLine("your total is: {0}", total);
+        Console.WriteLine("your total is: {0} Euros", total);
         }
 
 
