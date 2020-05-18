@@ -54,6 +54,11 @@ namespace AB2
                         order.OrderTotal();
                         return;
                     }
+                    else
+                    {
+                        Console.WriteLine("Eingabe Fehler");
+                        TakeOrder();
+                    }
                     /*else
                     {
                         Console.WriteLine("test");
